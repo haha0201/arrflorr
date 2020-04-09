@@ -4520,12 +4520,12 @@ var maintainloop = (() => {
         let rockcount = room.bas3.length * room.width * room.height / room.xgrid / room.ygrid / 250000 / 1.5;
         let nestrockcount = room.nest.length * room.width * room.height / room.xgrid / room.ygrid / 250000 / 1.5;
         let count = 0;
-        for (let i=Math.ceil(roidcount * 9.3); i; i--) { count++; placeRoid('bas2', Class.obstacle); }
-        for (let i=Math.ceil(roidcount * 9.8); i; i--) { count++; placeRoid('bas2', Class.babyObstacle); }
-        for (let i=Math.ceil(rockcount * 9.8); i; i--) { count++; placeRoid('bas3', Class.obstacle); }
-        for (let i=Math.ceil(rockcount * 9.3); i; i--) { count++; placeRoid('bas3', Class.babyObstacle); }
-        for (let i=Math.ceil(nestrockcount * 11.2); i; i--) { count++; placeRoid('nest', Class.obstacle); }
-        for (let i=Math.ceil(nestrockcount * 10.6); i; i--) { count++; placeRoid('nest', Class.babyObstacle); }
+        for (let i=Math.ceil(roidcount * 0.3); i; i--) { count++; placeRoid('bas2', Class.obstacle); }
+        for (let i=Math.ceil(roidcount * 0.8); i; i--) { count++; placeRoid('bas2', Class.babyObstacle); }
+        for (let i=Math.ceil(rockcount * 0.8); i; i--) { count++; placeRoid('bas3', Class.obstacle); }
+        for (let i=Math.ceil(rockcount * 0.3); i; i--) { count++; placeRoid('bas3', Class.babyObstacle); }
+        for (let i=Math.ceil(nestrockcount * 1.2); i; i--) { count++; placeRoid('nest', Class.obstacle); }
+        for (let i=Math.ceil(nestrockcount * 0.6); i; i--) { count++; placeRoid('nest', Class.babyObstacle); }
         util.log('Placing ' + count + ' rocks!');
     }
     placeRoids();
