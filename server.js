@@ -160,6 +160,11 @@ class Vector {
         this.len = this.length;
         this.dir = this.direction;
     }
+  
+isShorterThan(d) {
+        return this.x * this.x + this.y * this.y <= d * d
+    }
+    
 
     get length() {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
@@ -924,8 +929,8 @@ class Skill {
         this.shi = c.GLASS_HEALTH_FACTOR * apply(3 / c.GLASS_HEALTH_FACTOR - 1, attrib[skcnv.shi]);
         this.atk = apply(1, attrib[skcnv.atk]);
         this.hlt = c.GLASS_HEALTH_FACTOR * apply(2 / c.GLASS_HEALTH_FACTOR - 1, attrib[skcnv.hlt]);
-        this.mob = apply(0.8, attrib[skcnv.mob]); 
-        this.rgn = apply(25, attrib[skcnv.rgn]);
+        this.mob = apply(0.5, attrib[skcnv.mob]); 
+        this.rgn = apply(20, attrib[skcnv.rgn]);
 
         this.brst = 0.3 * (0.5 * attrib[skcnv.atk] + 0.5 * attrib[skcnv.hlt] + attrib[skcnv.rgn]);
     }
@@ -1449,10 +1454,10 @@ var bringToLife = (() => {
         if (my.settings.attentionCraver && !faucet.main && my.range) {
             my.range -= 1;
         }
-        // Invisibility
+        // Invisibility Oh thanks
         if (my.invisible[1]) {
           my.alpha = Math.max(0, my.alpha - my.invisible[1])
-          if (!my.velocity.isShorterThan(0.1) || my.damageReceived)
+          if (!my.velocity.isShorterThan(0.1) || my.damageReceived)//so the template itself did not have the isShorterThan function, I had to add it myself
             my.alpha = Math.min(1, my.alpha + my.invisible[0])
         }
         // So we start with my master's thoughts and then we filter them down through our control stack
@@ -3328,7 +3333,7 @@ const sockets = (() => {
                     switch (room.gameMode) {
                         case "tdm": {
                             body.team = -player.team;
-                            body.color = [10, 11, 12, 15][player.team - 1];
+                            body.color = [10, 11, 12, 13][player.team - 1];
                         } break;
                         default: {
                             body.color = (c.RANDOM_COLORS) ? 
@@ -4613,9 +4618,9 @@ var maintainloop = (() => {
         // Make base protectors if needed.
             /*let f = (loc, team) => { 
                 let o = new Entity(loc);
-                    o.define(Class.baseProtector);
+                    o.define(Class.ladybugSpawner);
                     o.team = -team;
-                    o.color = [10, 11, 12, 15][team-1];
+                    o.color = [10, 11, 12, 13][team-1];
             };
             for (let i=1; i<5; i++) {
                 room['bas' + i].forEach((loc) => { f(loc, i); }); 
@@ -4642,7 +4647,7 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
-                    o.define(Class.ladybugSpawner);
+                    o.define(Class.ladybugBeeSpawner);
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 17;
@@ -4652,8 +4657,8 @@ var maintainloop = (() => {
                 bots = bots.filter(e => { return !e.isDead(); });
                 // Slowly upgrade them
                 bots.forEach(o => {
-                    if (o.skill.level < 15) {
-                        o.skill.score += 1000;
+                    if (o.skill.level < 0) {
+                        o.skill.score += 600;
                         o.skill.maintain();
                     }
                 });

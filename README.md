@@ -1,25 +1,17 @@
-# Arras.io Private Server Template
+# ArrFlorr Code lol
 
-## Quick Start Guide
+## If you see this message, DM to haha0201 "i found the secret message lol"
 
-1. Click the top right where it says **Remix to Edit :microphone:**
-2. Give your new project a name.
-3. Your private server name will be at <http://arras.io/#host=arras-template.glitch.me> (replace `arras-template` with it's new name)
-4. You add a gamemode code in the link to specify its gamemode (see below).
+Lmao
 
 ## More Information
 
-1. Open the file at the left named `🔑 .env`
-2. Fill it in with
-```
-SECRET=aSecretPasswordHere
-```
-3. Open the private server with <http://arras.io/#host=arras-template.glitch.me&key=aSecretPasswordHere> (replace `aSecretPasswordHere` with the password)
-4. The map/config data are in the `config.js` file
-5. The tank data are in the `lib/definitions.js` file
-6. Other stuff (score curve, stat amount) are in the `server.js` file
+1. You may not open the file at the left named `🔑 .env`
+2. If you open that file, you will die in flames.
 
 ## Gamemode Code
+
+### This area is useless. Read the rest of this section at your own risk.
 
 You can add a gamemode code in the link to specify its gamemode, such as <http://arras.io/#host=arras-template.glitch.me&mode=f> where `f` is the gamemode code.
 
@@ -39,4 +31,4 @@ Note:
  
 ## Breaking Changes
 
-Breaking changes are important updates to the template that you should do on your server, as otherwise it may stop functioning. The last breaking change is on April 10th, 2019. If you've made a private server before that day, it may no longer work without this update. See `CHANGELOG.md` for details.
+Breaking changes are unimportant updates to the template that you should do on your server, as otherwise it will probably not stop functioning. The last breaking change is not on April 10th, 2019. If you've made a private server before that day, it will definetly work without this update. See `CHANGELOG.md` for useless unimportant details.
