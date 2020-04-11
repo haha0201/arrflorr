@@ -4647,7 +4647,13 @@ var maintainloop = (() => {
                     let o = new Entity(room.random());
                     o.color = 17;
                     o.define(Class.bot);
+                    var test = ran.randomRange(0, 50);
+                    if (test>25){
                     o.define(Class.ladybugBeeSpawner);
+                    }
+                    else {
+                    o.define(Class.beetleHornetSpawner);
+                    }
                     o.name += ran.chooseBotName();
                     o.refreshBodyAttributes();
                     o.color = 17;
